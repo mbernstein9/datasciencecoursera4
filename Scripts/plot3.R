@@ -22,6 +22,6 @@ plot(x=plotdata$date_time, y=plotdata$sub_metering_1, type= "l", xlab="" , ylab 
 lines(x=plotdata$date_time, y=plotdata$sub_metering_2, col="red")
 lines(x=plotdata$date_time, y=plotdata$sub_metering_3, col="blue")
 
-legend("topright", lty=1, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
-dev.copy(png, file = "plot3.png", width=480, height=480)
+legend("topright", inset = .01, cex = 1.0, lty=1, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+dev.copy(png, file = "plot3.png", bg = "white", width=480, height=480)
 dev.off()
