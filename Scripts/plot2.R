@@ -11,8 +11,10 @@ list.files("./")
 # load data and subset data
 rawdata <- read.csv("household_power_consumption.txt", sep=";", header=TRUE)
 subdata <- rawdata[which(as.Date(rawdata$Date, "%d/%m/%Y") == "2007-02-01" | as.Date(rawdata$Date, "%d/%m/%Y") == "2007-02-02"),]
+plotdata <- cbind(data.frame(strptime(paste(subdata$Date, subdata$Time), "%d/%m/%Y %H:%M:%S")), data.frame(as.double(as.character(subdata$Global_active_power))))
+names(plotdata) <- c("date_time", "global_active_power")
 
 # plot data
-hist(as.double(as.character(subdata$Global_active_power)), main = "Global Active Power",  xlab = "Global Active Power (kilowatts)", ylab = "Frequency", col = "red")
-dev.copy(png, file = "plot1.png", width=480, height=480)
+plot(x=plotdata$date_time, y=plotdata$global_active_power , type= "l", main = "Global Active Power", xlab="" , ylab = "Global Active Power (kilowatts)")
+dev.copy(png, file = "plot2.png", width=480, height=480)
 dev.off()
