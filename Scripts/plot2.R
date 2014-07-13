@@ -15,6 +15,8 @@ plotdata <- cbind(data.frame(strptime(paste(subdata$Date, subdata$Time), "%d/%m/
 names(plotdata) <- c("date_time", "global_active_power")
 
 # plot data
-plot(x=plotdata$date_time, y=plotdata$global_active_power , type= "l", main = "Global Active Power", xlab="" , ylab = "Global Active Power (kilowatts)")
+plot(x=plotdata$date_time, y=plotdata$global_active_power , type= "l", main = "", xlab="" , ylab = "Global Active Power (kilowatts)")
+
+# copy to png
 dev.copy(png, file = "plot2.png", width=480, height=480)
 dev.off()
